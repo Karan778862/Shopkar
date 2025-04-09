@@ -5,7 +5,7 @@ import CartPage from '@/pages/user/CartPage'
 import ShippingAddressForm from '@/pages/user/ShippingAddressForm'
 import PaymentPage from '@/pages/user/PaymentPage'
 import ConfirmPaymentPage from '@/pages/user/Confirmation'
-import UserOrdersPage from '@/pages/user/userOrdersPage'
+import UserOrdersPage from '@/pages/user/UserOrdersPage'
 
 const UserRoutes = () => {
   return (
