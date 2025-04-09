@@ -6,6 +6,7 @@ import axios from "axios";
 import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import Banner from "@/components/Banner";
+import { API } from "@/api/api";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export default function Home() {
     const fetchProducts = async () => {
       dispatch(setLoading(true));
       try {
-        const res = await axios.get("http://localhost:3001/api/product/"); // API Call
+        const res = await axios.get(`${API}/api/product/`); // API Call
         console.log(res.data);
 
         dispatch(setProducts(res.data)); 

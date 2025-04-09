@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API } from "@/api/api";
 
 const AdminUserPage = () => {
     const [users, setUsers] = useState([]);
@@ -9,7 +10,7 @@ const AdminUserPage = () => {
 
     const fetchUsers = async () => {
         try {
-            const res = await axios.get("http://localhost:3001/api/admin/users", {
+            const res = await axios.get(`${API}/api/admin/users`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUsers(res.data);
@@ -28,7 +29,7 @@ const AdminUserPage = () => {
        
         if (window.confirm("Are you sure you want to delete this user?")) {
             try {
-                await axios.delete(`http://localhost:3001/api/admin/user/delete/${id}`, {
+                await axios.delete(`${API}/api/admin/user/delete/${id}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setUsers(users.filter(user => user._id !== id));

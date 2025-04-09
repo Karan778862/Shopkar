@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { API } from "@/api/api";
 
 const EditProduct = () => {
   const { id } = useParams();
@@ -18,7 +19,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const { data } = await axios.get(`http://localhost:3001/api/product/single/${id}`);
+      const { data } = await axios.get(`${API}/api/product/single/${id}`);
       setFormData(data.product);
     };
 
@@ -44,7 +45,7 @@ const EditProduct = () => {
     try {
       const token = JSON.parse(localStorage.getItem("userInfo"))?.token;
 
-      const { data } = await axios.put(`http://localhost:3001/api/product/${id}`, formData, {
+      const { data } = await axios.put(`${API}/api/product/${id}`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

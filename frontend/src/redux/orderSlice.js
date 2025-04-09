@@ -1,3 +1,4 @@
+import { API } from "@/api/api";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -7,7 +8,7 @@ export const fetchUserOrders = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const { user } = getState().user; // ✅ Redux se token lo
-      const res = await axios.get("http://localhost:3001/api/order", {
+      const res = await axios.get(`${API}/api/order`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       return res.data.orders;
@@ -23,7 +24,7 @@ export const fetchOrderById = createAsyncThunk(
   async (orderId, { rejectWithValue, getState }) => {
     try {
       const { user } = getState().user;
-      const res = await axios.get(`http://localhost:3001/api/order/${orderId}`, {
+      const res = await axios.get(`${API}/api/order/${orderId}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       return res.data.order;

@@ -1,3 +1,4 @@
+import { API } from "@/api/api";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -10,7 +11,7 @@ export const fetchCart = createAsyncThunk("cart/fetchCart", async (_, { getState
             withCredentials: true,
         };
 
-        const res = await axios.get("http://localhost:3001/api/cart/get", config);
+        const res = await axios.get(`${API}/api/cart/get`, config);
         return res.data.cart;
     } catch (error) {
         return rejectWithValue(error.response.data.message);
@@ -26,7 +27,7 @@ export const addToCart = createAsyncThunk("cart/addToCart", async ({ productId, 
             withCredentials: true,
         };
 
-        const res = await axios.post("http://localhost:3001/api/cart/add", { productId, quantity }, config);
+        const res = await axios.post(`${API}/api/cart/add`, { productId, quantity }, config);
         return res.data.cart;
         
     } catch (error) {
@@ -44,7 +45,7 @@ export const removeFromCart = createAsyncThunk("cart/removeFromCart", async (pro
             withCredentials: true,
         };
 
-        const res = await axios.post("http://localhost:3001/api/cart/remove", { productId }, config);
+        const res = await axios.post(`${API}/api/cart/remove`, { productId }, config);
         return res.data.cart;
     } catch (error) {
         return rejectWithValue(error.response.data.message);

@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import {motion}  from "framer-motion";
 import axios from "axios";
+import { API } from "@/api/api";
 
 
 export default function Register() {
@@ -31,7 +32,7 @@ export default function Register() {
     console.log(formData)
 
     try {
-      const res = await axios.post("http://localhost:3001/api/user/register",formData,{
+      const res = await axios.post(`${API}/api/user/register`,formData,{
        withCredentials:true
       })
       if(res.data){

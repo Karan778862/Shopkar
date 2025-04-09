@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import {motion}  from "framer-motion";
 import axios from "axios";
+import { API } from "@/api/api";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ export default function Login() {
     e.preventDefault();
     // dispatch(setUser(formData));
     try {
-      const res = await axios.post("http://localhost:3001/api/user/login",formData,{
+      const res = await axios.post(`${API}/api/user/login`,formData,{
         headers: {
           "Content-Type": "application/json"
       },

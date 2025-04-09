@@ -1,4 +1,5 @@
 // redux/adminOrderSlice.js
+import { API } from "@/api/api";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -7,7 +8,7 @@ export const fetchAllOrders = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const token = JSON.parse(localStorage.getItem("userInfo")).token;
-      const { data } = await axios.get("http://localhost:3001/api/order/admin/all", {
+      const { data } = await axios.get(`${API}/api/order/admin/all`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       return data.orders;
@@ -22,7 +23,7 @@ export const updateOrderStatus = createAsyncThunk(
   async ({ id, status }, { rejectWithValue }) => {
     try {
       const token = JSON.parse(localStorage.getItem("userInfo")).token;
-      const { data } = await axios.put(`http://localhost:3001/api/order/admin/${id}/update`, 
+      const { data } = await axios.put(`${API}/api/order/admin/${id}/update`, 
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );

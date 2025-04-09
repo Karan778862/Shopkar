@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API } from "@/api/api";
 
 const OrderConfirmation = () => {
     const { id } = useParams()
@@ -20,7 +21,7 @@ const OrderConfirmation = () => {
                     return;
                 }
 
-                const res = await axios.get(`http://localhost:3001/api/order/${id}`, {
+                const res = await axios.get(`${API}/api/order/${id}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                     console.log(res)

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API } from "@/api/api";
 
 const DashboardHome = () => {
   const [summary, setSummary] = useState(null);
@@ -14,8 +15,8 @@ const DashboardHome = () => {
         const headers = { Authorization: `Bearer ${token}` };
 
         const [summaryRes, recentOrdersRes] = await Promise.all([
-          axios.get("http://localhost:3001/api/admin/summary", { headers }),
-          axios.get("http://localhost:3001/api/admin/recent-orders", { headers }),
+          axios.get(`${API}/api/admin/summary`, { headers }),
+          axios.get(`${API}/api/admin/recent-orders`, { headers }),
         ]);
 
         setSummary(summaryRes.data);

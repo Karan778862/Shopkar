@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API } from "@/api/api";
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({
@@ -46,7 +47,7 @@ const AddProduct = () => {
     try {
       const token = JSON.parse(localStorage.getItem("userInfo"))?.token;
       const { data } = await axios.post(
-        "http://localhost:3001/api/product/create",
+        `${API}/api/product/create`,
         finalFormData,
         {
           headers: { Authorization: `Bearer ${token}` }

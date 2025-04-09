@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { API } from "@/api/api";
 
 const PaymentPage = () => {
     const [paymentMethod, setPaymentMethod] = useState(null);
@@ -54,7 +55,7 @@ const PaymentPage = () => {
             };
     
             // ✅ Backend API Call
-            const { data } = await axios.post("http://localhost:3001/api/order/place", formattedOrderData, config);
+            const { data } = await axios.post(`${API}/api/order/place`, formattedOrderData, config);
     
             console.log("✅ Order Placed Successfully:", data);
     

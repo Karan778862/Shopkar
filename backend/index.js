@@ -22,7 +22,7 @@ const _dirname =path.resolve();
 
 
 const corsOption = {
-    origin: " http://localhost:5173",
+    origin: "https://shopkar-pvrm.onrender.com",
     credentials: true // ✅ Spelling "credentials" sahi karo (C capital mat rakho)
 };
 

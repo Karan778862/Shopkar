@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { API } from "@/api/api";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
     const token = JSON.parse(localStorage.getItem("userInfo"))?.token;
-    const { data } = await axios.get("http://localhost:3001/api/product/", {
+    const { data } = await axios.get(`${API}/api/product/`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     setProducts(data.products); // ✅ Yeh fix hai
@@ -19,7 +20,7 @@ const ProductList = () => {
   try {
     const token = JSON.parse(localStorage.getItem("userInfo"))?.token;
 
-    const response = await axios.delete(`http://localhost:3001/api/product/${productId}`, {
+    const response = await axios.delete(`${API}/api/product/${productId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
