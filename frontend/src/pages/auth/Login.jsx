@@ -73,7 +73,7 @@ export default function Login() {
             {loading ? "Registering..." : "Register"}
           </Button>
 
-          <span className='text-sm'>Already have an account? <Link to="/auth/register" className='text-blue-600'>register</Link></span>
+          <span className='text-sm'>Already have an account? <Link to="/auth/register" className='text-blue-600'>Login</Link></span>
         </form>
       </div>
       </motion.div>

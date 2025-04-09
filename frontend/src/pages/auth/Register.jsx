@@ -37,7 +37,7 @@ export default function Register() {
       })
       if(res.data){
         dispatch(setUser(res.data))
-        Navigate("/user/")
+        Navigate("/")
     }
     } catch (error) {
       console.log(error)
