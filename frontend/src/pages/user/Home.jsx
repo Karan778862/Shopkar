@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import Banner from "@/components/Banner";
 import { API } from "@/api/api";
-import Seo from "../components/Seo";
+import Seo from "../../components/Seo";
 
 export default function Home() {
 
