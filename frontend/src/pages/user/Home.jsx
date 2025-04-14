@@ -12,13 +12,7 @@ import Seo from "../../components/Seo";
 export default function Home() {
 
 
-  <Seo
-    title="ShopKar - India’s Trusted Online Shopping Platform"
-    description="ShopKar: Buy clothes, gadgets, electronics, and more at best prices in India."
-    keywords="ShopKar, buy online, cheap electronics, fashion India"
-    ogImage="https://shopkar.com/images/banner.jpg"
-    ogUrl="https://shopkar.com"
-  />
+  
 
 
   const dispatch = useDispatch();
@@ -47,6 +41,14 @@ export default function Home() {
 
   return (
     <>
+<Seo
+    title="ShopKar - India’s Trusted Online Shopping Platform"
+    description="ShopKar: Buy clothes, gadgets, electronics, and more at best prices in India."
+    keywords="ShopKar, buy online, cheap electronics, fashion India"
+    ogImage="https://shopkar.com/images/banner.jpg"
+    ogUrl="https://shopkar.com"
+  />
+
       <Navbar />
       <div className=" mt-17 w-full h-full  bg-white mx-auto p-4">
         {/* <h2 className="text-2xl font-bold mb-4">Products</h2> bg-[#84886e] */}

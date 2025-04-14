@@ -9,13 +9,7 @@ import Seo from "./Seo";
 
 export default function ProductCard({ product }) {
 
-<Seo
-  title={`${product.name} - Buy at Best Price | ShopKar`}
-  description={product.description}
-  keywords={`${product.category}, ${product.brand}, ${product.name}`}
-  ogImage={product.images[0]}
-  ogUrl={`https://shopkar.com/product/${product.slug}`}
-/>
+
 
 
     const dispatch = useDispatch();
@@ -50,7 +44,8 @@ export default function ProductCard({ product }) {
 
 
   return (
-    // <div className="border  p-4 rounded-lg shadow-md bg-gray-200">
+    <>
+    {/* // <div className="border  p-4 rounded-lg shadow-md bg-gray-200">
     //   <Link to={`/product/${product._id}`}>
     //     <img src={product?.images?.[0]?.url} alt={product.title} className=" h-40 mx-auto" />
     //     <h3 className="text-lg font-semibold mt-2">{product.name}</h3>
@@ -59,11 +54,17 @@ export default function ProductCard({ product }) {
     //   <button onClick={handleAddToCart} className="mt-2 bg-[#E69138] text-white px-4 py-2 rounded w-full">
     //     Add to Cart
     //   </button>
-    // </div>
+    // </div> */}
 
 
 
-
+<Seo
+  title={`${product.name} - Buy at Best Price | ShopKar`}
+  description={product.description}
+  keywords={`${product.category}, ${product.brand}, ${product.name}`}
+  ogImage={product.images[0]}
+  ogUrl={`https://shopkar.com/product/${product.slug}`}
+/>
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-sm w-full mx-auto">
     {/* Image & Badge */}
     <div className="relative">
@@ -122,6 +123,7 @@ export default function ProductCard({ product }) {
       
     </div>
   </div>
+  </>
   );
 }
 
