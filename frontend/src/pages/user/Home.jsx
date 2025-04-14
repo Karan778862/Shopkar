@@ -7,8 +7,20 @@ import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import Banner from "@/components/Banner";
 import { API } from "@/api/api";
+import Seo from "../components/Seo";
 
 export default function Home() {
+
+
+  <Seo
+    title="ShopKar - India’s Trusted Online Shopping Platform"
+    description="ShopKar: Buy clothes, gadgets, electronics, and more at best prices in India."
+    keywords="ShopKar, buy online, cheap electronics, fashion India"
+    ogImage="https://shopkar.com/images/banner.jpg"
+    ogUrl="https://shopkar.com"
+  />
+
+
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.product);
 

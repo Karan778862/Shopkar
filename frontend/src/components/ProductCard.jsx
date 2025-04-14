@@ -5,8 +5,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { Share2 } from "lucide-react";
 import { useState } from "react";
 import ShareButton from "./ShareButton";
+import Seo from "./Seo";
 
 export default function ProductCard({ product }) {
+
+<Seo
+  title={`${product.name} - Buy at Best Price | ShopKar`}
+  description={product.description}
+  keywords={`${product.category}, ${product.brand}, ${product.name}`}
+  ogImage={product.images[0]}
+  ogUrl={`https://shopkar.com/product/${product.slug}`}
+/>
+
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
