@@ -1,7 +1,7 @@
 const SitemapGenerator = require('sitemap-generator');
 
 // Yeh URL wahi hai jaha tu chahata hai sitemap banega
-const generator = SitemapGenerator('https://shopkar.com', {
+const generator = SitemapGenerator('https://shopkar-pvrm.onrender.com/', {
   stripQuerystring: false,
   filepath: './sitemap.xml', // output file
 });
